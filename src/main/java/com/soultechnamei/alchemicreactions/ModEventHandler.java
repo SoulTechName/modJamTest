@@ -9,11 +9,16 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent;
 
 public class ModEventHandler {
+	
+	int LX;
+	int LY;
+	int LZ;
+	
 	@SubscribeEvent
-	public void onRightClicked(PlayerInteractEvent block) {
-		int LX = block.x;
-		int LY = block.y;
-		int LZ = block.z;
+	public void getCordsofRightClickedBlock(PlayerInteractEvent b) {
+		int LX = b.x;
+		int LY = b.y;
+		int LZ = b.z;
 
 	}
 
