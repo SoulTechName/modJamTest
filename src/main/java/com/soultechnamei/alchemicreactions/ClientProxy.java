@@ -7,7 +7,7 @@ import cpw.mods.fml.client.registry.ClientRegistry;
 
 public class ClientProxy extends CommonProxy {
 	 
-	public void registerRenderThings() {
+	public static void registerRenderThings() {
          ClientRegistry.bindTileEntitySpecialRenderer(BBACEntity.class, new BBACEntityRender());
  }
 

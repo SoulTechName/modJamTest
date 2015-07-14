@@ -3,6 +3,7 @@ package com.soultechnamei.alchemicreactions.blocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntity;
@@ -26,6 +27,12 @@ public class BBAC extends BlockContainer  {
 				world.setBlock(x, y - 1, z, Blocks.sand);
 			} else if (B == Blocks.dirt) {
 				world.setBlock(x, y - 1, z, Blocks.sand);
+			} else if (B == Blocks.sand) {
+				world.setBlock(x, y - 1, z, Blocks.dirt);
+			} else if (B == Blocks.stone) {
+				world.setBlock(x, y - 1, z, Blocks.cobblestone);
+			} else if (B == Blocks.cobblestone) {
+				world.setBlock(x, y - 1, z, Blocks.stone);
 			} else {
 
 			}
@@ -55,5 +62,7 @@ public class BBAC extends BlockContainer  {
 		
 		 return new BBACEntity();
 	}
-
+	public void registerIcons(IIconRegister icon) {
+        this.blockIcon = icon.registerIcon("alchemic reactions:textures/items/Basic Alchemy Circle.png");
+}
 }

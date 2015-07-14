@@ -26,11 +26,14 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class ReactionsMain {
 	public static final String MODID = "Alchemic Reactions";
 	public static final String VERSION = "1.0";
-
-	public static Item BAC; // Basic Alchemy Circle
-	public static Item BEG;
 	
-	public static Block BBAC;
+	//Items
+	public static Item BEG; //Basic Essence Gem 
+	public static Item C; //Chalk
+	
+	
+	//Blocks
+	public static Block BBAC; //Basic alchemy circle
 	
 	
 	ModEventHandler e = new ModEventHandler();
@@ -49,10 +52,10 @@ public class ReactionsMain {
 		BBAC = new BBAC(Material.rock).setHardness(1.5F).setStepSound(Block.soundTypeStone).setBlockName("BBAC")
 				.setCreativeTab(CreativeTabs.tabBlock);
 		// Items
-		BAC = new ItemBAC();
+		C = new ItemC(); 
         BEG = new ItemBEG();
 		// Game Registry
-		GameRegistry.registerItem(BAC, "Basic Alchemy Circle");
+		
        	GameRegistry.registerItem(BEG, "Basic Essence Gem");
        	
 		GameRegistry.registerBlock(BBAC, "BBAC");
