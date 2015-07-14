@@ -1,14 +1,23 @@
 package com.soultechnamei.alchemicreactions.blocks;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+<<<<<<< HEAD
+=======
+import net.minecraft.tileentity.TileEntity;
+>>>>>>> origin/MattB
 import net.minecraft.world.World;
 
 import com.soultechnamei.alchemicreactions.ModEventHandler;
 
+<<<<<<< HEAD
 public class BBAC extends Block {
+=======
+public class BBAC extends BlockContainer  {
+>>>>>>> origin/MattB
 
 	public BBAC(Material material) {
 		super(material);
@@ -31,6 +40,29 @@ public class BBAC extends Block {
 
 		}
 		return true;
+<<<<<<< HEAD
+=======
+	}
+
+	@Override
+	public int getRenderType() {
+		return -1;
+	}
+
+	@Override
+	public boolean isOpaqueCube() {
+		return false;
+	}
+
+	public boolean renderAsNormalBlock() {
+		return false;
+	}
+
+	@Override
+	public TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_) {
+		
+		return null;
+>>>>>>> origin/MattB
 	}
 
 }
