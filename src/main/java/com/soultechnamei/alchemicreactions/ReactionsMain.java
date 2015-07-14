@@ -35,12 +35,8 @@ public class ReactionsMain {
 	
 	ModEventHandler e = new ModEventHandler();
     
-<<<<<<< HEAD
-
-=======
-	@SidedProxy(clientSide="com.soultechnamei.alchemicreachions.ClientProxy", serverSide="com.soultechnamei.alchemicreachionstions.CommonProxy")
+	@SidedProxy(clientSide="com.soultechnamei.alchemicreactions.ClientProxy", serverSide="com.soultechnamei.alchemicreactionstions.CommonProxy")
 	public static CommonProxy proxy;
->>>>>>> origin/MattB
 	
 	@EventHandler
 	public void preinit(FMLPreInitializationEvent event) {
@@ -61,16 +57,9 @@ public class ReactionsMain {
        	
 		GameRegistry.registerBlock(BBAC, "BBAC");
 		 
+		ClientProxy.registerRenderThings();
+		GameRegistry.registerTileEntity(BBACEntity.class, "tileEntityTrafficLight");
 
 	}
-    @EventHandler
-	public void init(FMLInitializationEvent event) {
-
-	}
-    @EventHandler
-	public void  load(FMLInitializationEvent event) {
-    	
-    	ClientProxy.registerRenderThings();
-    	GameRegistry.registerTileEntity(BBACEntity.class, "tileEntityTrafficLight");
-    }
 }
+

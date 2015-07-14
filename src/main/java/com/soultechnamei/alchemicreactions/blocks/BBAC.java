@@ -5,19 +5,13 @@ import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-<<<<<<< HEAD
-=======
 import net.minecraft.tileentity.TileEntity;
->>>>>>> origin/MattB
 import net.minecraft.world.World;
 
 import com.soultechnamei.alchemicreactions.ModEventHandler;
+import com.soultechnamei.alchemicreactions.entity.BBACEntity;
 
-<<<<<<< HEAD
-public class BBAC extends Block {
-=======
 public class BBAC extends BlockContainer  {
->>>>>>> origin/MattB
 
 	public BBAC(Material material) {
 		super(material);
@@ -40,8 +34,6 @@ public class BBAC extends BlockContainer  {
 
 		}
 		return true;
-<<<<<<< HEAD
-=======
 	}
 
 	@Override
@@ -61,8 +53,7 @@ public class BBAC extends BlockContainer  {
 	@Override
 	public TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_) {
 		
-		return null;
->>>>>>> origin/MattB
+		 return new BBACEntity();
 	}
 
 }
