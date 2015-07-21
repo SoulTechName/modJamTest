@@ -11,13 +11,13 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 
-public class ItemBEG extends Item {
+public class ItemCBEG extends Item {
 
 
-	public ItemBEG() {
-		setUnlocalizedName(Reference.MODID + "_" + "Basic Essence Gem");
+	public ItemCBEG() {
+		setUnlocalizedName(Reference.MODID + "_" + "Charged Gem");
 		setCreativeTab(CreativeTabs.tabMisc);
-		setTextureName(Reference.MODID + ":" + "BEGNC");
+		setTextureName(Reference.MODID + ":" + "BEGC");
 	}
 	
 }	

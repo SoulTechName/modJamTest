@@ -16,11 +16,12 @@ import com.soultechnamei.alchemicreactions.entity.BBACEntity;
 import com.soultechnamei.alchemicreactions.items.ItemBAC;
 import com.soultechnamei.alchemicreactions.items.ItemBEG;
 import com.soultechnamei.alchemicreactions.items.ItemC;
+import com.soultechnamei.alchemicreactions.items.ItemCBEG;
 import com.soultechnamei.alchemicreactions.items.ItemSS;
 import com.soultechnamei.alchemicreactions.proxies.ClientProxy;
 import com.soultechnamei.alchemicreactions.proxies.CommonProxy;
-import com.soultechnamei.alchemicreactions.ModEventHandler;
 import com.soultechnamei.alchemicreactions.blocks.BFTC;
+import com.soultechnamei.alchemicreactions.blocks.BGemOre;
 
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
@@ -33,71 +34,62 @@ import cpw.mods.fml.common.registry.GameRegistry;
 @Mod(modid = ReactionsMain.MODID, version = ReactionsMain.VERSION)
 public class ReactionsMain {
 	public static final String MODID = "Alchemic Reactions";
-	public static final String VERSION = "1.0";
-	
-	//Items
-	public static Item BEG; //Basic Essence Gem 
-	public static Item C; //Chalk
-	public static Item SS; //Stone Shards
-	
-	
-	//Blocks
-	public static Block BBAC; //Basic Transmutation circle
-	public static Block FTC; //Fix Transmutation Circle
-	public static Block BTMC; //Transmutation Crafting Table
-	
-	
-	
-	//CreativeTab
-	public static CreativeTabs tabAlchemyCircles = new CreativeTabsAlchemyCircles ("Alchemic Reactions: Circles"); 
-	
-	ModEventHandler e = new ModEventHandler();
-    
-	@SidedProxy(clientSide="com.soultechnamei.alchemicreactions.proxies.ClientProxy", serverSide="com.soultechnamei.alchemicreactionstions.proxies.CommonProxy")
+	public static final String VERSION = "0.1.1D";
+
+	public static Item BEG, C, SS, GEMC;
+	public static Block BBAC, FTC, BTMC, GEMO;
+	// ITEMS: B Essence Gem, Chalk, Stone Shards, Charged Gem
+	// BLOCKS: B Trans. Circle, Fix Trans. Circle, Trans. Crafting Table, GemOre
+
+	// CreativeTab
+	public static CreativeTabs tabAlchemyCircles = new CreativeTabsAlchemyCircles("Alchemic Reactions: Circles");
+
+	@SidedProxy(clientSide = "com.soultechnamei.alchemicreactions.proxies.ClientProxy", serverSide = "com.soultechnamei.alchemicreactionstions.proxies.CommonProxy")
 	public static CommonProxy proxy;
-	
+
 	@EventHandler
 	public void preinit(FMLPreInitializationEvent event) {
-        
-		FMLCommonHandler.instance().bus().register(e);
-        MinecraftForge.EVENT_BUS.register(e);
 
-		
 		// Blocks
 		BBAC = new BBAC(Material.rock).setHardness(1.5F).setStepSound(Block.soundTypeStone).setBlockName("BBAC")
 				.setCreativeTab(ReactionsMain.tabAlchemyCircles);
-		
+
 		BTMC = new BTMC(Material.rock).setHardness(1.5F).setStepSound(Block.soundTypeStone).setBlockName("BTMC")
 				.setCreativeTab(ReactionsMain.tabAlchemyCircles);
+
 		FTC = new BFTC(Material.rock).setHardness(1.5F).setStepSound(Block.soundTypeStone).setBlockName("BFTC")
 				.setCreativeTab(ReactionsMain.tabAlchemyCircles);
-		
+
+		GEMO = new BGemOre(Material.rock).setHardness(1.5F).setStepSound(Block.soundTypeStone).setBlockName("GEMO")
+				.setCreativeTab(ReactionsMain.tabAlchemyCircles).setBlockTextureName(Reference.MODID + ":" + "GemOre");
+
 		// Items
-		C = new ItemC(); 
-        BEG = new ItemBEG();
-        SS = new ItemSS();
-        
+		GEMC = new ItemCBEG();
+		C = new ItemC();
+		BEG = new ItemBEG();
+		SS = new ItemSS();
+
 		// Game Registry
-		
-        
-       		//Items
-        GameRegistry.registerItem(BEG, "Basic Essence Gem");
-        GameRegistry.registerItem(C, "Chalk");
-        GameRegistry.registerItem(SS, "Stone Shards");
-       	
-			//Blocks
-       	GameRegistry.registerBlock(BBAC, "BBAC");
-       	GameRegistry.registerBlock(BTMC, "BTMC");
-       	
-       		//Misc
+
+		// Items
+		GameRegistry.registerItem(BEG, "Basic Essence Gem");
+		GameRegistry.registerItem(C, "Chalk");
+		GameRegistry.registerItem(SS, "Stone Shards");
+		GameRegistry.registerItem(GEMC, "Charged Gem");
+		// Blocks
+		GameRegistry.registerBlock(BBAC, "BBAC");
+		GameRegistry.registerBlock(BTMC, "BTMC");
+		GameRegistry.registerBlock(GEMO, "GEMO");
+		// Misc
 		ClientProxy.registerRenderThings();
 		GameRegistry.registerTileEntity(BBACEntity.class, "tileBasicAlchemyCircle");
-		
-			//Crafting
-		//GameRegistry.addShapelessRecipe(new ItemStack(ReactionsMain.SS), new Object[] {"T","C",'C',Items.wooden_pickaxe,'T',Blocks.stone});
-		GameRegistry.addRecipe(new ItemStack(ReactionsMain.BTMC), new Object[] {"T", "C", "T", 'C', ReactionsMain.C, 'T', Blocks.crafting_table});
+
+		// Crafting
+		// GameRegistry.addShapelessRecipe(new ItemStack(ReactionsMain.SS), new
+		// Object[] {"T","C",'C',Items.wooden_pickaxe,'T',Blocks.stone});
+		GameRegistry.addRecipe(new ItemStack(ReactionsMain.BTMC),
+				new Object[] { "T", "C", "T", 'C', ReactionsMain.C, 'T', Blocks.crafting_table });
 		GameRegistry.addSmelting(ReactionsMain.SS, new ItemStack(ReactionsMain.C), 1);
-		GameRegistry.addShapelessRecipe( new ItemStack( ReactionsMain.SS, 1, 1), Items.wooden_pickaxe, Blocks.stone);
+		GameRegistry.addShapelessRecipe(new ItemStack(ReactionsMain.SS, 1, 1), Items.wooden_pickaxe, Blocks.stone);
 	}
 }
-

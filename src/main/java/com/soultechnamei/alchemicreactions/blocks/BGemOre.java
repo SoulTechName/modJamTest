@@ -4,15 +4,10 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 
-public class BFTC extends Block {
-	
-	
-	public BFTC(Material material) {	
-	
+public class BGemOre extends Block {
+
+	public BGemOre(Material material) {
+
 		super(material);
 	}
-
-	
-
-	
 }
