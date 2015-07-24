@@ -3,12 +3,17 @@ package com.soultechnamei.alchemicreactions.blocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
+import org.lwjgl.opengl.GL11;
+
+import com.soultechnamei.alchemicreactions.Reference;
 import com.soultechnamei.alchemicreactions.entity.BBACEntity;
 
 public class BBAC extends BlockContainer {
@@ -19,7 +24,7 @@ public class BBAC extends BlockContainer {
 	}
 
 	public void registerIcons(IIconRegister icon) {
-		this.blockIcon = icon.registerIcon("alchemic reactions:Basic Alchemy Circle.png");
+		this.blockIcon = icon.registerIcon(Reference.MODID + ":" + "Basic Alchemy Circle");
 	}
 
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int i, float f, float g,
@@ -28,6 +33,7 @@ public class BBAC extends BlockContainer {
 
 			Block B = world.getBlock(x, y - 1, z);
 			if (B == Blocks.grass) {
+
 				world.setBlock(x, y - 1, z, Blocks.sand);
 				world.setBlock(x, y, z, Blocks.air);
 
@@ -76,4 +82,5 @@ public class BBAC extends BlockContainer {
 
 		return new BBACEntity();
 	}
+
 }
