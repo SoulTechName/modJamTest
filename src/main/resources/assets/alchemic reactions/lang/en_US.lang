@@ -1,2 +1,3 @@
 tile.BBAC.name=Basic Alchemy Circle
-itemGroup.Alchemic Reactions: Circles= Alchemic Reactions: Circles
+tile.Dev_Block_Blue.name=DevBlockBlue
+tile.Dev_Block_Orange.name=DevBlockOrange
